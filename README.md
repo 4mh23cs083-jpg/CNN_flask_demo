@@ -1,1 +1,1 @@
-# object_detection_by_students
+# CNN_flask_demo
