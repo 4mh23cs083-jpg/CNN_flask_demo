@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome {{name}} - NeuroVision</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #09090b;
+            --primary: #f59e0b;
+            /* Amber */
+            --secondary: #d946ef;
+            /* Fuchsia */
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
+            --text-main: #f4f4f5;
+            --text-muted: #a1a1aa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-image:
+                radial-gradient(circle at 80% 10%, rgba(245, 158, 11, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 20% 90%, rgba(217, 70, 239, 0.15) 0%, transparent 40%);
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 4rem 6rem;
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-out;
+            max-width: 90%;
+            width: 700px;
+        }
+
+        .greeting-sub {
+            color: var(--primary);
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .name-highlight {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .action-btn {
+            display: inline-block;
+            background: var(--text-main);
+            color: var(--bg-dark);
+            text-decoration: none;
+            padding: 1rem 2.5rem;
+            border-radius: 99px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Background grid effect */
+        .grid {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.1;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid"></div>
+
+    <div class="container">
+        <div class="card">
+            <div class="greeting-sub">Personalized Workspace</div>
+            <h1>Hello, <br> <span class="name-highlight">{{name}}</span></h1>
+            <p>Welcome to your private dashboard on NeuroVision.</p>
+            <a href="/" class="action-btn">Enter Studio</a>
+        </div>
+    </div>
+</body>
+
+</html>
