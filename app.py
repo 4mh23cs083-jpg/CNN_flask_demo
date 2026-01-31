@@ -15,7 +15,7 @@ def abc():
 def index(name):
     return render_template("name.html", name=name)
 
-print("hi")
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
