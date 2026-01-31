@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 
 app = Flask(__name__)
 
@@ -10,6 +10,18 @@ def home():
 @app.route("/abc")
 def abc():
     return render_template("abc.html")
+
+@app.route("/luffy")
+def luffy():
+    return render_template("image.html", title="Monkey D. Luffy", image_file="luffy.png")
+
+@app.route("/sanji")
+def sanji():
+    return render_template("image.html", title="Sanji", image_file="sanji.png")
+
+@app.route("/zoro")
+def zoro():
+    return render_template("image.html", title="Roronoa Zoro", image_file="zoro.png")
 
 @app.route("/<name>")
 def index(name):
