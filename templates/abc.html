@@ -336,9 +336,32 @@
             <p>Deploy enterprise-grade image classification models in minutes, not months. Secure, scalable, and
                 API-first.</p>
             <div class="cta-group">
-                <a href="#" class="btn btn-primary">Get API Key</a>
-                <a href="#" class="btn btn-ghost" style="border: 1px solid var(--border)">View Documentation</a>
+                <input type="text" id="nameInput" placeholder="Enter your name"
+                    style="padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid var(--border); outline: none;">
+                <a href="#" id="nameLink" class="btn btn-primary" onclick="updateLink()">Go to Dashboard</a>
             </div>
+            <script>
+                function updateLink() {
+                    const name = document.getElementById('nameInput').value;
+                    const link = document.getElementById('nameLink');
+                    if (name.trim() !== "") {
+                        link.href = "/" + encodeURIComponent(name);
+                    } else {
+                        alert("Please enter a name first");
+                        link.href = "#";
+                        return false;
+                    }
+                }
+
+                // Also update on typing so the hover shows the right link immediately/feels responsive
+                document.getElementById('nameInput').addEventListener('input', function (e) {
+                    const name = e.target.value;
+                    const link = document.getElementById('nameLink');
+                    if (name.trim() !== "") {
+                        link.href = "/" + encodeURIComponent(name);
+                    }
+                });
+            </script>
         </div>
         <div class="hero-visual">
             <div class="floating-card card-1">
